@@ -20,8 +20,8 @@ export default function Login() {
       };
     } else if (action === 'signup') {
       const result = await handleSignUp(username, password);
-      if (result) dispatch({ type: 'LOGGED_IN', payload: true });
-      localStorage.setItem('auth-kaizntree', true);
+      setUsername('');
+      setPassword('');
     }
   }
 
@@ -40,12 +40,14 @@ export default function Login() {
               type="text" 
               placeholder="Username" 
               onChange={(e) => setUsername(e.target.value)}
+              value={username}
               required
             />
             <input 
               type="password" 
               placeholder="Password" 
               onChange={(e) => setPassword(e.target.value)} 
+              value={password}
               required
             />
             <div className={styles.loginButtons}>
