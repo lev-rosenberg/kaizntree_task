@@ -35,6 +35,18 @@
   background-color: rgba(var(--primary-green), 0.5);
 }
 
+.loginContainer button.fakeLink {
+  background-color: transparent;
+  padding: 0;
+  color: rgba(var(--primary-blue));
+  width: fit-content;
+  box-shadow: none;
+  align-self: flex-start;
+  border-radius: 0px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
 @media screen and (max-width: 768px) {
   .loginForm {
     width: 90%;

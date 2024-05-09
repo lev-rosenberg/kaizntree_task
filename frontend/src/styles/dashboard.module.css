@@ -1,5 +1,7 @@
 .dashboardContainer {
   padding: 2rem;
+  height: 100%;
+  overflow: scroll;
 }
 
 .dashboardContainer .itemsContainer {
@@ -55,4 +57,9 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
+}
+
+.dashboardContainer label {
+  font-weight: 600;
+  color: rgb(var(--dark-gray))
 }
