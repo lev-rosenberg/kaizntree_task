@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { handleGetItems } from '../backendActions/items';
 import styles from '../styles/dashboard.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass, faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faEtsy, faShopify } from '@fortawesome/free-brands-svg-icons';
+import { faSquare } from '@fortawesome/free-regular-svg-icons';
 export default function Dashboard() {
   const [items, setItems] = useState([]);
 
@@ -13,22 +17,57 @@ export default function Dashboard() {
     }
     getItems()
   }, []);
+
+  function Icons({tags}) {
+    const icons = {
+      Etsy: faEtsy,
+      Shopify: faShopify,
+      Square: faSquare,
+    }
+    const tagList = tags.split(' ');
+    console.log(tagList)
+    return tagList.map((tag, index) => {
+      return (
+        <FontAwesomeIcon key={index} icon={icons[tag]} />
+      )
+    })
+  }
   return (
     <div className={styles.dashboardContainer}>
-      <h1>Item Dashboard</h1>
-      <p>All items</p>
+      <div className='flex justify-between pb-5'>
+        <div>
+          <h1>Item Dashboard</h1>
+          <p>All items</p>
+          <button className='ml-2 my-8'>NEW ITEM CATEGORY</button>
+        </div>
+        <div className='flex flex-col w-1/4'>
+          <div className={`${styles.stat} border-b`}>
+            <p>Total Categories</p>
+            <p>3</p>
+          </div>
+          <div className={styles.stat}>
+            <p>Total Items</p>
+            <p>4</p>
+          </div>
+        </div>
+      </div>
+      
       <div className={styles.itemsContainer}>
         <div className={styles.itemInteraction}>
           <div className='flex gap-2'>
             <button>NEW ITEM</button>
-            <button className='bg-gray-200 text-gray-500' style={{backgroundColor: "#E5E5E5", color: "#4E4E4E"}}>OPTIONS</button>
+            <button disabled>OPTIONS</button>
           </div>
           <div className='flex gap-2'>
             <form className='flex'>
               <input placeholder='Search'/>
-              <button type="submit">search</button>
+              <button type="submit">
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+              </button>
             </form>
-            <button>Filter</button>
+            <button>
+              <FontAwesomeIcon icon={faFilter} />
+            </button>
           </div>
         </div>
         <ul className={styles.itemsList}>
@@ -37,7 +76,7 @@ export default function Dashboard() {
               <input type="checkbox" />
               <span>SKU</span>
               <span>Name</span>
-              <span>Tags</span>
+              <span>Icons</span>
               <span>Category</span>
               <span>In Stock</span>
               <span>Available Stock</span>
@@ -49,8 +88,12 @@ export default function Dashboard() {
                 <li key={index} className={styles.item}>
                   <input type="checkbox" />
                   <span>{item.sku}</span>
-                  <span>{item.name}</span>
-                  <span>{item.tags}</span>
+                  <span className='fakeLink'>{item.name}</span>
+                  <span>
+                    <span className='flex gap-1'>
+                      <Icons tags={item.tags}/>
+                    </span>
+                  </span>
                   <span>{item.category}</span>
                   <span>{item.in_stock ? 'True' : 'False'}</span>
                   <span>{item.available_stock}</span>

@@ -9,7 +9,10 @@ export default function NavBar() {
 
   async function handleLogoutClick() {
     const result = await handleLogout();
-    if (result) dispatch({ type: 'LOGGED_IN', payload: false });
+    if (result) {
+      dispatch({ type: 'LOGGED_IN', payload: false });
+      localStorage.removeItem('auth-kaizntree');
+    };
   }
 
   return (

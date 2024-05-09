@@ -19,7 +19,6 @@ export async function handleGetItems() {
       console.error("error:", result.data.error);
       return false;
     } else {
-      console.log('Retrieved items!');
       return result.data;
     }
   } catch (e) {

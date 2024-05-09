@@ -22,7 +22,7 @@ h1 {
 }
 
 p {
-    font-size: 1.25em;
+    font-size: 18px;
 }
 
 input {
@@ -39,4 +39,17 @@ button {
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     transition: all 0.1s;
+}
+
+.fakeLink {
+  background-color: transparent;
+  padding: 0;
+  color: rgba(var(--primary-blue));
+  width: fit-content;
+  box-shadow: none;
+  align-self: flex-start;
+  border-radius: 0px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  cursor: pointer;
 }

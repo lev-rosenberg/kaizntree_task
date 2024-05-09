@@ -15,11 +15,14 @@ export default function Login() {
     const action = e.nativeEvent.submitter.name;
     if (action === 'login') {
       const result = await handleLogin(username, password);
-      console.log(result);
-      if (result) dispatch({ type: 'LOGGED_IN', payload: true });
+      if (result) {
+        dispatch({ type: 'LOGGED_IN', payload: true })
+        localStorage.setItem('auth-kaizntree', true);
+      };
     } else if (action === 'signup') {
       const result = await handleSignUp(username, password);
       if (result) dispatch({ type: 'LOGGED_IN', payload: true });
+      localStorage.setItem('auth-kaizntree', true);
     }
   }
 

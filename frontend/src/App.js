@@ -13,12 +13,9 @@ export default function App() {
   const { loggedIn } = state;
 
   useEffect(() => {
-    console.log('useEffect triggered in App.js');
-    if (loggedIn) {
-      console.log('logged in');
+    if (loggedIn || localStorage.getItem('auth-kaizntree') === 'true') {
       navigate('/');
     } else {
-      console.log('not logged in');
       navigate('/login');
     }
   }, [loggedIn, navigate]);
@@ -26,10 +23,12 @@ export default function App() {
       <Routes>
         <Route 
           path="/" 
-          exact element={
-          <Layout>
-            <Dashboard />
-          </Layout>} 
+          element=
+          {
+            <Layout>
+              <Dashboard />
+            </Layout>
+          } 
         />
         <Route path="/login" element={<Login />} />
       </Routes>
