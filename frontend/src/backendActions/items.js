@@ -1,0 +1,29 @@
+import axios from 'axios';
+import Cookies from 'js-cookie';
+
+export async function handleGetItems() {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'X-CSRFToken': Cookies.get('csrftoken'),
+    }
+  };
+  // const body = JSON.stringify({
+  //   'withCredentials': true,
+  // });
+
+  try {
+    const result = await axios.get(`${process.env.REACT_APP_API_URL}/api/items/`, config);
+    if (result.data.error) { 
+      console.error("error:", result.data.error);
+      return false;
+    } else {
+      console.log('Retrieved items!');
+      return result.data;
+    }
+  } catch (e) {
+    console.error(e);
+    return false;
+  }
+}

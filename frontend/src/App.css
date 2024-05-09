@@ -1,38 +1,42 @@
-.App {
-  text-align: center;
+:root {
+    --primary-green: 	36, 156, 90;
+    --primary-bg-gray: 229, 227, 227;
+    --primary-blue: 24, 108, 234;
+    --dark-gray: 77, 77, 77;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    margin: 0;
+    font-family: 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 300;
+    height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+    font-size: 2em;
+    font-weight: 600;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+p {
+    font-size: 1.25em;
 }
 
-.App-link {
-  color: #61dafb;
+input {
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #d1d5db;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+    padding: 0.5rem 1.25rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.1s;
 }

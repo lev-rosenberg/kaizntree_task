@@ -1,0 +1,48 @@
+.dashboardContainer {
+  padding: 0.5rem;
+}
+
+.dashboardContainer .itemsContainer {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+.dashboardContainer .itemInteraction {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  height: 5rem;
+}
+
+.dashboardContainer .itemsList {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+.dashboardContainer input[type="checkbox"] {
+  width: 1rem;
+  border: 5px solid rgb(var(--dark-gray));
+  border-radius: 5px;
+  justify-self: center;
+}
+
+.dashboardContainer .item {
+  display: grid;
+  grid-template-columns: 1fr 2fr 4fr 2fr 3fr 2fr 2fr;
+  gap: 10px;
+  padding: 0.75rem;
+}
+
+.dashboardContainer button {
+  background-color: rgb(var(--primary-green));
+  color: white;
+}
+
+.dashboardContainer button:hover {
+  background-color: rgba(var(--primary-green), 0.5);
+}
