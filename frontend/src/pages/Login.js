@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
 import styles from '../styles/login-signup.module.css';
 import { CSRFToken } from '../components/CSRFToken';
 import { handleLogin, handleSignUp } from '../backendActions/userAuth';
